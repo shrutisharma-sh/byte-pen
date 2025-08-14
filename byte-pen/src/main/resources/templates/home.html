@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Byte-Pen</title>
+</head>
+<body>
+    <h1>Welcome looser</h1>
+    <p>Welcome to Byte-Pen, your go-to platform for all things !</p>
+    <div>
+       <button>
+            <a th:href="@{/login}">Login</a>
+       </button> 
+       <button> <a th:href="@{/signup}">Sign Up</a></button>
+       <button> <a th:href="@{/posts}">View alll public posts</a></button>
+       <button> <a th:href="@{/posts/new}">create new post</a></button>
+    </div>
+    <hr>
+    <div>
+        <p>write the hell your mind out </p>
+    </div>
+</body>
+</html>

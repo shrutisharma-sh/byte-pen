@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html th:xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts - byte pen</title>
+</head>
+<body>
+    <h1>Posts</h1>
+    <div th:if="${posts}">
+        <ul>
+            <li th:each="post : ${posts}">
+                <h2 th:text="${post.title}">Post Title</h2>
+                <p th:text="${post.content}">Post Content</p>
+                <small>By <span th:text="${post.author.username}"></span></small>
+            </li>
+        </ul>
+    </div>
+    <div th:if="${not posts}">
+        <p>No posts available.</p>
+    </div>
+    <!-- only edit and delete posts if you are the author -->
+    <div th:if="${#authentication.principal.username == post.author.username}">
+        <a th:href="@{/posts/edit/{id}(id=${post.id})}">Edit</a>
+        <a th:href="@{/posts/delete/{id}(id=${post.id})}">Delete</a>
+    </div>
+    <div>
+        <a th;href="/posts/new">Create New Post</a>
+    </div>
+    <div><a th:href="@{/home}">back to Home</a></div>
+</body>
+</html>
